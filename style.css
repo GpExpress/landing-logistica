@@ -472,8 +472,27 @@ p {
 .service-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
+    background-color: var(--clr-bg-main);
+    padding: 3rem;
+    border-radius: var(--rad-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #f1f5f9;
+}
+
+.service-row.full-width {
+    grid-template-columns: 1fr;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-row.full-width .service-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .service-row.reverse {
@@ -531,15 +550,15 @@ p {
 .service-image-placeholder {
     aspect-ratio: 4/3;
     border-radius: var(--rad-lg);
-    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    background: #9d8a97;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-sm);
 }
 
 .si-1 {
-    background: linear-gradient(rgba(56, 12, 47, 0.4), rgba(56, 12, 47, 0.5)), url('servicio-1.jpg') center/cover;
+    background: #9d8a97; /* Muted purple placeholder */
 }
 
 .si-2 {
