@@ -79,4 +79,57 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.style.boxShadow = '0 10px 15px -3px rgb(0 0 0 / 0.1)';
         }
     });
+    // 5. Map Modal / Lightbox logic
+    const mapModal = document.getElementById("map-modal");
+    const openMapBtn = document.getElementById("open-map-btn");
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = document.querySelector(".close-modal");
+
+    if (openMapBtn && mapModal && closeBtn) {
+        openMapBtn.addEventListener("click", () => {
+            mapModal.style.display = "block";
+            modalImg.src = document.querySelector(".coverage-map").src;
+            modalImg.classList.remove("zoomed"); // Reset state on open
+        });
+
+        // Toggle Zoom on Image Click (Centering exactly where clicked)
+        modalImg.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevent closing if event bubbles to mapModal
+            
+            const isZoomingIn = !modalImg.classList.contains("zoomed");
+            
+            if (isZoomingIn) {
+                // Get click relative to image before it resizes
+                const rect = modalImg.getBoundingClientRect();
+                const relX = (e.clientX - rect.left) / rect.width;
+                const relY = (e.clientY - rect.top) / rect.height;
+                
+                modalImg.classList.add("zoomed");
+                
+                // Instantly scroll after browser applies class
+                requestAnimationFrame(() => {
+                    const newWidth = modalImg.clientWidth;
+                    const newHeight = modalImg.clientHeight;
+                    
+                    // Center the clicked point in the viewport
+                    mapModal.scrollLeft = (relX * newWidth) - (window.innerWidth / 2);
+                    mapModal.scrollTop = (relY * newHeight) - (window.innerHeight / 2) + 60; // 60 for padding-top
+                });
+            } else {
+                modalImg.classList.remove("zoomed");
+            }
+        });
+
+        // Close on X click
+        closeBtn.addEventListener("click", () => {
+            mapModal.style.display = "none";
+        });
+
+        // Close on clicking outside the image
+        mapModal.addEventListener("click", (e) => {
+            if (e.target === mapModal) {
+                mapModal.style.display = "none";
+            }
+        });
+    }
 });

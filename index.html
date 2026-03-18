@@ -8,6 +8,21 @@
     <meta name="description"
         content="Simplificá la logística de tu negocio. GP Express es tu socio estratégico para entregas rápidas y seguras en CABA y GBA. Cotizá tu envío hoy.">
 
+    <!-- Open Graph / Redes Sociales (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:title" content="GP Express | Logística Integral B2B">
+    <meta property="og:description" content="Simplificá la logística de tu negocio. Entregas en CABA y GBA.">
+    <meta property="og:image" content="logo-chico.png">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GP Express | Logística Integral B2B">
+    <meta name="twitter:description" content="Simplificá la logística de tu negocio. Entregas en CABA y GBA.">
+    <meta name="twitter:image" content="logo-chico.png">
+
+    <!-- Ícono pestaña navegador -->
+    <link rel="icon" href="logo-chico.png" type="image/png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +47,7 @@
             <nav class="nav-links" id="nav-links">
                 <a href="#servicios">Servicios</a>
                 <a href="#industrias">Especialidades</a>
+                <a href="#integraciones">Integraciones</a>
                 <a href="#como-funciona">Cómo Funciona</a>
                 <a href="#cobertura">Cobertura</a>
                 <a href="#faq">FAQ</a>
@@ -53,7 +69,7 @@
         <div class="hero-bg-pattern"></div>
         <div class="container hero-container">
             <div class="hero-content">
-                <div class="badge">Logística Confiable en CABA y GBA</div>
+                <div class="badge">Expertos en Logística de Última Milla</div>
                 <h1 class="hero-title">Acelerá las entregas de <br>tu negocio sin fricción.</h1>
                 <p class="hero-description">
                     Somos el socio estratégico que cuida tu reputación. Garantizamos entregas rápidas, seguras y
@@ -89,10 +105,10 @@
 
                     <div class="feature-card">
                         <div class="icon-wrapper">
-                            <i data-feather="shield"></i>
+                            <img src="meli.png" alt="Envíos Flex Icon" class="meli-icon">
                         </div>
-                        <h3>Reputación Intacta</h3>
-                        <p>Representamos a tu empresa con profesionalismo.</p>
+                        <h3>Envíos Flex</h3>
+                        <p>Somos especialistas en realizar envíos flex.</p>
                     </div>
 
                     <div class="feature-card">
@@ -126,13 +142,14 @@
             <div class="services-list">
                 <div class="service-row">
                     <div class="service-content">
-                        <div class="service-badge">Alta Demanda</div>
-                        <h3>Mensajería en el Día (Same-Day)</h3>
-                        <p>Perfecto para urgencias corporativas, envíos express y documentos. Retiramos y entregamos tu
-                            paquetería express dentro de CABA y GBA en tiempo récord.</p>
+                        <div class="service-badge">E-Commerce</div>
+                        <h3>Envíos Flex y Same-Day</h3>
+                        <p>Diseñado exclusivamente para vendedores online. Retiramos tu mercadería y entregamos en el
+                            día en CABA y GBA. Ideal para Mercado Libre Flex, Tienda Nube y e-commerce propios que
+                            buscan cuidar su reputación.</p>
                         <ul class="service-features">
-                            <li><i data-feather="check"></i> Respuesta inmediata</li>
-                            <li><i data-feather="check"></i> Flota ágil para la ciudad</li>
+                            <li><i data-feather="check"></i> Entregas garantizadas en el día</li>
+                            <li><i data-feather="check"></i> Aumentá la reputación de tu tienda</li>
                         </ul>
                     </div>
                     <div class="service-image-placeholder si-1"></div>
@@ -196,6 +213,30 @@
         </div>
     </section>
 
+    <!-- Integraciones -->
+    <section class="integrations bg-light" id="integraciones">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Integración con tu E-Commerce</h2>
+                <p class="section-subtitle">Conectamos nuestra logística directamente con los canales de venta que ya
+                    utilizás todos los días para automatizar tus despachos.</p>
+            </div>
+            <div style="max-width: 600px; margin: 2rem auto 0;">
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i data-feather="layers"></i>
+                    </div>
+                    <h3>Integración Multiplataforma</h3>
+                    <p>Nos integramos con tus canales de venta para que el proceso sea más eficiente. Enviamos tus
+                        ventas donde vos quieras.<br><br>
+                        • <strong>Plataformas:</strong> Shopify, Tienda Nube, Mercado Libre, WooCommerce y Magento.<br>
+                        • Entregas 24-48hs en CABA y GBA.<br>
+                        • Fulfillment, almacenamiento y control de inventarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Cómo Funciona -->
     <section class="how-it-works bg-gray" id="como-funciona">
         <div class="container">
@@ -240,12 +281,11 @@
                     eficiencia.</p>
             </div>
             <div class="coverage-map-container">
-                <a href="mapa-cobertura.jpg" target="_blank" class="map-link"
-                    aria-label="Ver mapa en pantalla completa">
+                <div class="map-display" id="open-map-btn" aria-label="Ampliar mapa">
                     <img src="mapa-cobertura.jpg" alt="Mapa de cobertura de GP Express en Buenos Aires"
                         class="coverage-map">
                     <div class="map-hint"><i data-feather="zoom-in"></i> Tocá para ampliar</div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
@@ -317,6 +357,12 @@
         </div>
     </section>
 
+    <!-- Mapa Modal -->
+    <div id="map-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -334,6 +380,7 @@
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#industrias">Sectores</a></li>
+                        <li><a href="#integraciones">Integraciones</a></li>
                         <li><a href="#como-funciona">Cómo Funciona</a></li>
                         <li><a href="#cobertura">Cobertura</a></li>
                     </ul>
